@@ -1,4 +1,5 @@
 module.exports = {
 	fs: require('./fs'),
-	shell: require('./shell')
+	shell: require('./shell'),
+	Logger: require('./Logger')
 };
