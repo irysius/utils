@@ -14,8 +14,17 @@ function isLoggerValid(logger) {
 			_.isFunction(logger.error) && _.isFunction(logger.log));
 }
 
+var bluebirdRegex = /node_modules[\\/]bluebird/g;
+function stackFilter(stack) {
+	var lines = stack.split('\n');
+	return lines
+		.filter(l => !bluebirdRegex.exec(l))
+		.join('\n');
+}
+
 module.exports = {
 	silent: silentLogger,
 	console: consoleLogger,
-	isLoggerValid: isLoggerValid
+	isLoggerValid: isLoggerValid,
+	stackFilter: stackFilter
 };
