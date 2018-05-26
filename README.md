@@ -105,25 +105,3 @@ Returns an array of full directory paths at the provided path.
 options.recurse is a boolean that determines if listing the directories should be recursive or not.
 
 options.ignore is a string or array of strings to exclude from the results based on an indexOf check against the folder's basename.
-
-### Shell
-
-**constructor**
-
-`Shell(cwd: String)`
-
-Constructor for the shell. It is highly recommand that the cwd being passed is an absolute path.
-
-**shell.cwd**
-
-`shell.cwd: String`
-
-Readonly reminder of what the shell's cwd is set to.
-
-**shell.spawn**
-
-`shell.spawn(cmd: String, args: Array<String>?) => Promise<{ code: Number, stdout: Array<String>, stderr: Array<String> }>`
-
-Calls node's `child_process.spawn`, and returns the exit code, stdout and stderr as an array of string. 
-
-This only throws if something went wrong with reading data from the streams or if the command caused spawn to fail. 

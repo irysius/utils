@@ -1,11 +1,9 @@
 declare module "@irysius/utils" {
     import * as _fs from "@irysius/utils/fs";
-    import * as _shell from "@irysius/utils/shell";
     import * as _Logger from "@irysius/utils/Logger";
     import * as _IgnoreError from "@irysius/utils/IgnoreError";
     import * as _HttpError from "@irysius/utils/HttpError";
     export let fs: typeof _fs;
-    export let shell: typeof _shell;
     export let Logger: typeof _Logger;
     export let IgnoreError: typeof _IgnoreError;
     export let HttpError: typeof _HttpError;
@@ -47,20 +45,6 @@ declare module "@irysius/utils/fs" {
     }
     export function listFiles(path: string, options?: IRecurseOptions): Promise<IRecord[]>;
     export function listDirectories(path: string, options?: IRecurseOptions): Promise<IRecord[]>;
-}
-declare module "@irysius/utils/shell" {
-    interface IShellResult {
-        code: number;
-        stdout: string[];
-        stderr: string[];
-    }
-    interface IShell {
-        spawn(cmd: string, args?: string[]): Promise<IShellResult>;
-        readonly cwd: string;
-    }
-    function Shell(cwd: string): IShell;
-    namespace Shell {}
-    export = Shell;
 }
 declare module "@irysius/utils/Logger" {
     export interface ILogger {

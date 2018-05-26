@@ -20,7 +20,7 @@ function stat(path) {
 	});
 }
 function writeFile(file, data) {
-	var options = arguments.length <= 2 || arguments[2] === undefined ? { encoding: 'utf8' } : arguments[2];
+	var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : { encoding: 'utf8' };
 
 	return new Promise(function (resolve, reject) {
 		fs.writeFile(file, data, options, function (err) {
@@ -33,10 +33,10 @@ function writeFile(file, data) {
 	});
 }
 function readFile(file) {
-	var options = arguments.length <= 1 || arguments[1] === undefined ? { encoding: 'utf8' } : arguments[1];
+	var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'utf8';
 
 	return new Promise(function (resolve, reject) {
-		fs.readFile(file, function (err, data) {
+		fs.readFile(file, options, function (err, data) {
 			if (err) {
 				reject(err);
 			} else {
@@ -134,9 +134,8 @@ function copyFolder(source, target) {
 	});
 }
 function listContents(path) {
-	var _ref = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	var filter = _ref.filter;
+	var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	    filter = _ref.filter;
 
 	if (!_.isFunction(filter)) {
 		filter = function filter() {
@@ -164,11 +163,10 @@ function listContents(path) {
 	});
 }
 function listFiles(path) {
-	var _ref2 = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	var _ref2$recurse = _ref2.recurse;
-	var recurse = _ref2$recurse === undefined ? false : _ref2$recurse;
-	var ignore = _ref2.ignore;
+	var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	    _ref2$recurse = _ref2.recurse,
+	    recurse = _ref2$recurse === undefined ? false : _ref2$recurse,
+	    ignore = _ref2.ignore;
 
 	ignore = _.isArray(ignore) ? ignore : [ignore];
 	return listContents(path).then(function (records) {
@@ -197,11 +195,10 @@ function listFiles(path) {
 	});
 }
 function listDirectories(path) {
-	var _ref3 = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-
-	var _ref3$recurse = _ref3.recurse;
-	var recurse = _ref3$recurse === undefined ? false : _ref3$recurse;
-	var ignore = _ref3.ignore;
+	var _ref3 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+	    _ref3$recurse = _ref3.recurse,
+	    recurse = _ref3$recurse === undefined ? false : _ref3$recurse,
+	    ignore = _ref3.ignore;
 
 	ignore = _.isArray(ignore) ? ignore : [ignore];
 	var filter = function filter(value) {
