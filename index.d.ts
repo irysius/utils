@@ -41,7 +41,7 @@ declare module "@irysius/utils/fs" {
     export function listContents(path: string, options?: IFilterOptions): Promise<IRecord[]>;
     export interface IRecurseOptions {
         recurse?: boolean;
-        ignore: string|string[];
+        ignore?: string|string[];
     }
     export function listFiles(path: string, options?: IRecurseOptions): Promise<IRecord[]>;
     export function listDirectories(path: string, options?: IRecurseOptions): Promise<IRecord[]>;
