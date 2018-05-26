@@ -22,9 +22,9 @@ function writeFile(file, data, options = { encoding: 'utf8' }) {
 		});	
 	});
 }
-function readFile(file, options = { encoding: 'utf8' }) {
+function readFile(file, options = 'utf8') {
 	return new Promise((resolve, reject) => {
-		fs.readFile(file, (err, data) => {
+		fs.readFile(file, options, (err, data) => {
 			if (err) { reject(err); }
 			else { resolve(data); }
 		});
