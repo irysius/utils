@@ -3,8 +3,17 @@ declare module "@irysius/utils" {
     import * as _Logger from "@irysius/utils/Logger";
     import * as _IgnoreError from "@irysius/utils/IgnoreError";
     import * as _HttpError from "@irysius/utils/HttpError";
+
     export let fs: typeof _fs;
+    export let IWriteFileOptions: _fs.IWriteFileOptions;
+    export let IReadFileOptions: _fs.IReadFileOptions;
+    export let IRecord: _fs.IRecord;
+    export let IFilterOptions: _fs.IFilterOptions;
+    export let IRecurseOptions: _fs.IRecurseOptions;
+
     export let Logger: typeof _Logger;
+    export let ILogger: _Logger.ILogger;
+
     export let IgnoreError: typeof _IgnoreError;
     export let HttpError: typeof _HttpError;
 }
