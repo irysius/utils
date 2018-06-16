@@ -53,8 +53,8 @@ declare module "@irysius/utils/Logger" {
         error: Function;
         log: Function;
     }
-    export function silentLogger(): ILogger;
-    export function consoleLogger(): ILogger;
+    export function silent(): ILogger;
+    export function console(): ILogger;
     export function isLoggerValid(logger: any): boolean;
     export function stackFilter(stack: string): string;
 }
