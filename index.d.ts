@@ -5,35 +5,15 @@ declare module "@irysius/utils" {
     import * as _HttpError from "@irysius/utils/HttpError";
 
     export let fs: typeof _fs;
-    export interface IWriteFileOptions {
-        encoding?: string;
-        mode?: number;
-        flag?: string;
-    }
-    export interface IReadFileOptions {
-        encoding?: string;
-        flag?: string;
-    }
-    export interface IRecord {
-        path: string;
-        stat: Stats;
-    }
-    export interface IFilterOptions {
-        filter?(record: IRecord): boolean;
-    }
-    export interface IRecurseOptions {
-        recurse?: boolean;
-        ignore?: string|string[];
-    }
+    export { 
+        IWriteFileOptions, IReadFileOptions, IRecord, IFilterOptions, IRecurseOptions 
+    } from "@irysius/utils/fs";
 
     export let Logger: typeof _Logger;
-    export interface ILogger {
-        info: Function;
-        warn: Function;
-        error: Function;
-        log: Function;
-    }
-
+    export {
+        ILogger
+    } from "@irysius/utils/Logger";
+    
     export let IgnoreError: typeof _IgnoreError;
     export let HttpError: typeof _HttpError;
 }
