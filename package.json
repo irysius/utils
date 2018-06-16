@@ -1,6 +1,6 @@
 {
   "name": "@irysius/utils",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Opinionated utility functions",
   "main": "build/utils.js",
   "scripts": {
